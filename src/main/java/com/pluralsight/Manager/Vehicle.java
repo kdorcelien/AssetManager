@@ -22,7 +22,7 @@ public class Vehicle extends Asset {
         } else if (year >= 7 && year <= 10) {
             costPerYear = -originalCost * 0.08 * year;
         } else if (year > 10) {
-            costPerYear = originalCost-1000.00;
+            costPerYear = 1000.00;
         }
         boolean isHondaOrToyota = makeModel.toLowerCase().contains("honda") ||
                 makeModel.toLowerCase().contains("toyota");
