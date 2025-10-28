@@ -38,4 +38,12 @@ public class Asset {
     public void setOriginalCost(double originalCost) {
         this.originalCost = originalCost;
     }
+
+    @Override
+    public String toString() {
+        return "Asset: " +
+                "description='" + description + '\'' +
+                ", dateAcquired='" + dateAcquired + '\'' +
+                ", originalCost=" + originalCost;
+    }
 }

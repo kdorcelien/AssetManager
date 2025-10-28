@@ -16,23 +16,22 @@ public class Vehicle extends Asset {
     public double getValue() {
         double costPerYear = 0;
         if (year <= 3) {
-            costPerYear = -0.03;
-        } else if (year == 4 && year <= 6) {
-            costPerYear = -0.06;
-        } else if (year == 7 && year <= 10) {
-            costPerYear = -0.08;
+            costPerYear = -originalCost * 0.03 * year;
+        } else if (year >= 4 && year <= 6) {
+            costPerYear = -originalCost * 0.06 * year;
+        } else if (year >= 7 && year <= 10) {
+            costPerYear = -originalCost * 0.08 * year;
         } else if (year > 10) {
-            costPerYear = -1000.00;
+            costPerYear = originalCost-1000.00;
         }
         boolean isHondaOrToyota = makeModel.toLowerCase().contains("honda") ||
                 makeModel.toLowerCase().contains("toyota");
 
         if (odometer > 100000 && !isHondaOrToyota) {
-            costPerYear = -0.25;
+            costPerYear = originalCost * 0.75;
         }
-double currentCost = originalCost -costPerYear;
 
-        return currentCost;
+        return costPerYear;
     }
 
     public String getMakeModel() {
